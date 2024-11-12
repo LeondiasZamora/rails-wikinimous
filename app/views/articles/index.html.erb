@@ -1,11 +1,22 @@
+<div class="container d-flex justify-content-center">
+
 <ol>
-<% @articles.each do |article|%>
-  <li><%= article.title %>
+  <% @articles.each do |article|%>
+  <li class="bg-secondary m-4 p-2 text-white rounded 2 d-flex space-between w-100 justify-content-between">
+  <%= article.title %>
+  <div>
+  <button>
   <%= link_to "Delete",
   article_path(article),
+  class: "text-black",
   data: {turbo_method: :delete, turbo_confirm: "Are you sure?" }
   %>
-  <%= link_to "edit", edit_article_path(article)%>
+  </button>
+  <button>
+    <%= link_to "edit", edit_article_path(article), class: "text-black"%>
+  </button>
+  </div>
   </li>
 <%end%>
-</ol>
+  </ol>
+</div>
